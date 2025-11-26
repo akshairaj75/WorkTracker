@@ -1,0 +1,118 @@
+/* ===============================
+   Create Page Styling
+=================================*/
+
+body {
+    background-color: #f4f6f9;
+    font-family: 'Poppins', sans-serif;
+    color: #2c2c2c;
+}
+
+/* ---------- Form Container ---------- */
+.dataform {
+    width: 85%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form-title h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ---------- Layout ---------- */
+.form-item-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* ---------- Form Items ---------- */
+.form-items {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-items label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.form-items input,
+.form-items select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-items input:focus,
+.form-items select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- File Input ---------- */
+#attachments {
+    border: none;
+    background: #f8f9fa;
+    padding: 6px;
+    font-size: 0.9rem;
+}
+
+/* ---------- Submit Button ---------- */
+button[type="submit"] {
+    display: block;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 25px auto 0;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #324ad3;
+    transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .dataform {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .form-section {
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+}

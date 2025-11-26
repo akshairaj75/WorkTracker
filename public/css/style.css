@@ -1,0 +1,75 @@
+:root {
+  --primary-color: #3498db;
+  --text-color: #474646;
+}
+*{
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+
+}
+
+
+header{
+    height: 70px;
+    background-color: rgb(37, 117, 188);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right:20px ;
+    color: white;
+}
+
+.header-title{
+    padding-left:20px ;
+}
+
+.navlinks{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.navlinks li{
+    list-style: none;
+}
+.log{
+    display: flex;
+    gap: 5px;
+}
+header a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+/* a{
+    text-decoration:none ;
+} */
+main{
+    flex: 1;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    color: rgb(143, 114, 114);       /* or any color you want */
+    font-size: 20px;  
+    opacity: 1;       
+    padding: 0px;    
+}
+.select2-container--default .select2-selection--single .select2-selection__clear:hover{
+    color: rgb(24, 22, 22);       /* or any color you want */
+    font-size: 20px;  
+    opacity: 1;       
+    padding: 0px;    
+}

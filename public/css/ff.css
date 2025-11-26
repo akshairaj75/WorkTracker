@@ -1,0 +1,89 @@
+/* Subtask container */
+#subtaskContainer {
+    margin-top: 20px;
+}
+.form-items-dropdowns{
+    display: flex;
+    gap: 20px;
+}
+
+/* Each subtask box */
+.subtask-box {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Subtask fields */
+.subtask-box .form-items {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Subtask labels */
+.subtask-box label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Subtask inputs and selects */
+.subtask-box input[type="text"],
+.subtask-box select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Optional: hover effect */
+.subtask-box:hover {
+    border-color: #888;
+    background: #f1f1f1;
+}
+
+
+
+
+<div id="subtaskContainer">
+                    @foreach ($data->subtasks as $index => $subtask)
+                    <div class="subtask-box">
+                        <div class="form-items-dropdowns">
+                            <div class="form-items">
+                            <label>Work:</label>
+                            <select name="subtasks[{{ $index }}][sub_work_type]" required>
+                                <option value="task" @selected($subtask->sub_work_type == 'task')>Task</option>
+                                <option value="testing" @selected($subtask->sub_work_type == 'testing')>Testing</option>
+                                <option value="error" @selected($subtask->sub_work_type == 'error')>Error</option>
+                                <option value="learning" @selected($subtask->sub_work_type == 'learning')>Learning</option>
+                            </select>
+                        </div>
+
+                        <div class="form-items">
+                            <label>Status:</label>
+                            <select name="subtasks[{{ $index }}][sub_work_result]" required>
+                                <option value="stuck" @selected($subtask->sub_work_result == 'stuck')>Stuck</option>
+                                <option value="solved" @selected($subtask->sub_work_result == 'solved')>Solved</option>
+                                <option value="pending" @selected($subtask->sub_work_result == 'pending')>Pending</option>
+                            </select>
+                        </div>
+                        </div>
+
+                        <div class="form-items">
+                            <label>Details:</label>
+                            <input type="text" name="subtasks[{{ $index }}][sub_work_description]" value="{{ $subtask->sub_work_description }}" {{$is_editable}}>
+                        </div>
+
+                        <input type="hidden" name="subtasks[{{ $index }}][id]" value="{{ $subtask->id }}">
+                    </div>
+                    @endforeach
+                </div>    

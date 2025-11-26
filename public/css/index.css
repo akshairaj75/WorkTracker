@@ -1,0 +1,475 @@
+:root {
+    --primary-color: rgb(37, 117, 188);
+    --accent-color: #28a745;
+    --danger-color: #dc3545;
+    --text-color: #2c2c2c;
+    --background-color: #f4f6f9;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* -------------------- TASK MANAGEMENT SECTION -------------------- */
+
+.task-manage {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* -------------------- ADMIN DASHBOARD SECTION -------------------- */
+
+.admin-dashboard {
+    background: #f9fafc;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.admin-button,
+.user-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.admin-button a,
+.user-button a {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 3px;
+    transition: all 0.25s ease;
+}
+
+.admin-button a:hover,
+.user-button a:hover {
+    background-color: #3452d1;
+}
+
+.exports {
+    display: flex;
+    gap: 6px;
+}
+
+.import-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.import-form input[type="file"] {
+    font-size: 0.85rem;
+}
+
+.import-form button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.import-form button:hover {
+    background-color: #218838;
+}
+
+/* -------------------- TABLE STYLES -------------------- */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th,
+table td {
+    padding: 10px 12px;
+    border: 1px solid #e5e5e5;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f5f7fb;
+}
+
+table tbody tr:hover {
+    background-color: #e8f0ff;
+    transition: 0.15s ease-in-out;
+}
+
+/* Description & attachments cells */
+td:nth-child(4) {
+    max-width: 250px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.attachments-cell {
+    width: 160px;
+    max-width: 160px;
+}
+
+.attachments-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 3px 1px;
+    max-width: 250px;
+}
+::-webkit-scrollbar{
+    height: 3px;
+    width: 3px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #8e8a8a;
+    border-radius: 3px;
+}
+
+.attachment-item {
+    width: 55px;
+    height: 55px;
+    background: #f0f0f6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.attachment-item i {
+    font-size: 35px;
+}
+
+.attachment-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.attachment-item span {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.attachment-item:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#update {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.25s ease;
+}
+
+#update:hover {
+    background-color: #495aa4;
+}
+
+/* SUCCESS / ALERT MESSAGES */
+.add-success {
+    background: #e9fbe9;
+    border: 1px solid #a8e6a1;
+    color: #2d792d;
+    animation: fadeOut 3s forwards;
+    padding: 5px;
+    border-radius: 6px;
+    width: fit-content;
+    margin: 20px auto;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+@media (max-width: 992px) {
+    .task-manage {
+        padding: 20px;
+    }
+
+    table th,
+    table td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+
+    .admin-button,
+    .user-button {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-button a,
+    .user-button a {
+        width: 50%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .import-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .exports {
+        justify-content: center;
+    }
+
+    .import-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .activity-form,
+    .activity-interactions,
+    #progressWrapper {
+        flex-direction: column;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+}
+
+/* -------------------- FORMS & UPDATION -------------------- */
+
+.updation-forms {
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.updation-forms h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.activity-progress-container,
+.user-text-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(74, 51, 51, 0.15);
+}
+
+.activity-form {
+    display: flex;
+    gap: 20px;
+}
+
+.activity-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+hr {
+    height: 1px;
+}
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+}
+
+.form-items label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-items input[type="date"],
+.form-items input[type="time"] {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: all 0.2s;
+}
+
+.form-items input[type="date"]:focus,
+.form-items input[type="time"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52,152,219,0.3);
+    outline: none;
+}
+
+.activity-interactions {
+    display: flex;
+    gap: 20px;
+}
+
+.activity-text-area,
+.progressbar {
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.activity-text-area textarea,
+.progressbar textarea {
+    padding: 20px;
+    line-height: 1.5em;
+    font-size: 0.85em;
+    width: 100%;
+    /* padding: 18px; */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    /* font-size: 14px; */
+    resize: vertical;
+    min-height: 150px;
+    transition: all 0.2s;
+}
+
+.activity-text-area textarea:focus,
+.progressbar textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 6px rgba(52,152,219,0.25);
+}
+
+.activity-text-area input[type="submit"],
+.user-text-area button {
+    align-self: flex-start;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.activity-text-area input[type="submit"]:hover,
+.user-text-area button:hover {
+    background-color: #2980b9;
+}
+
+.progress-details,
+.task-details {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.progress-details h5,
+.task-details h5 {
+    margin-bottom: 10px;
+    margin-top: 0px;
+    font-weight: 600;
+    color: #555;
+    background-color: white;
+    width: 100%;
+}
+
+.progress-details p,
+.task-details p {
+    margin: 8px 0;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.task-details span {
+    font-weight: 500;
+    color: #333;
+}
+
+.user-text-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-text-area .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-text-area .search-box select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+#progressWrapper {
+    display: none;
+    flex-wrap: wrap;
+    gap: 15px;
+}
