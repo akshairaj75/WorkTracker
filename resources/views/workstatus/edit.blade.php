@@ -211,7 +211,7 @@
                                 <input type="hidden" name="subtasks[{{ $sIndex }}][id]" value="{{ $subtask->id }}">
                                 <div class="form-items">
                                     <label>Work Type:</label>
-                                    <select name="subtasks[{{ $sIndex }}][sub_work_type]">
+                                    <select name="subtasks[{{ $sIndex }}][sub_work_type]" {{$is_editable}} >
                                         <option value="task" @selected($subtask->sub_work_type == 'task')>Task</option>
                                         <option value="testing" @selected($subtask->sub_work_type == 'testing')>Testing</option>
                                         <option value="error" @selected($subtask->sub_work_type == 'error')>Error</option>
@@ -221,16 +221,21 @@
 
                                 <div class="form-items">
                                     <label>Description:</label>
-                                    <textarea name="subtasks[{{ $sIndex }}][sub_work_desc]">{{ $subtask->sub_work_description }}</textarea>
+                                    <textarea name="subtasks[{{ $sIndex }}][sub_work_description]" {{$is_editable}}>{{ $subtask->sub_work_description }}</textarea>
                                 </div>
                                 <div class="form-items">
                                     <label>Date:</label>
-                                    <input type="date" value="{{ $subtask->sub_work_date }}" name="subtasks[{{ $sIndex }}][sub_work_date">
+                                    <input type="date" value="{{ $subtask->sub_work_date }}" name="subtasks[{{ $sIndex }}][sub_work_date]" {{$is_editable}}>
                                 </div>
                                 <div class="form-items">
                                     <label>Result:</label>
-                                    <textarea name="subtasks[{{ $sIndex }}][sub_work_result]">{{ $subtask->sub_work_result }}</textarea>
+                                <select name="subtasks[{{ $sIndex }}][sub_work_result]" id="result" >
+                                    <option value="stuck" @selected($subtask->sub_work_result == 'stuck')>Stuck</option>
+                                    <option value="solved" @selected($subtask->sub_work_result == 'solved')>Solved</option>
+                                    <option value="pending" @selected($subtask->sub_work_result == 'pending')>Pending</option>
+                                </select>
                                 </div>
+
                                 <!-- Nested subtasks -->
                                 @if($subtask->nestedsubtask->isNotEmpty())
                                 <div class="nested-list">
@@ -241,10 +246,10 @@
                                             <span class="arrow">▼</span>
                                         </div>
                                         <div class="nested-body">
-                                            <input type="hidden" name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][id]" value="{{ $nested->id }}">
+                                            <input type="hidden" name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][id]" value="{{ $nested->id }}" {{$is_editable}}>
                                             <div class="form-items">
                                                 <label>Nested Type:</label>
-                                                <select name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][sub_work_type]">
+                                                <select name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][sub_work_type]"  {{$is_editable}}>
                                                     <option value="task" @selected($nested->sub_work_type == 'task')>Task</option>
                                                     <option value="testing" @selected($nested->sub_work_type == 'testing')>Testing</option>
                                                     <option value="error" @selected($nested->sub_work_type  == 'error')>Error</option>
@@ -252,8 +257,21 @@
                                                 </select>
                                             </div>
                                             <div class="form-items">
-                                                <label>Nested Description:</label>
-                                                <textarea name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][sub_work_description]">{{ $nested->sub_work_description }}</textarea>
+                                                <label>Nested Description:</label> 
+                                                <textarea name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][sub_work_description]" {{$is_editable}}>{{ $nested->sub_work_description }}</textarea>
+                                            </div>
+
+                                            <div class="form-items">
+                                                <label>Date:</label>
+                                                <input type="date" value="{{ $nested->sub_work_date }}" name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][sub_work_date]" {{$is_editable}}>
+                                            </div>
+                                            <div class="form-items">
+                                                <label>Result:</label>
+                                                <select name="subtasks[{{ $sIndex }}][nested][{{ $nIndex }}][sub_work_result]" id="result">
+                                                    <option value="stuck" @selected($nested->sub_work_result == 'stuck')>Stuck</option>
+                                                    <option value="solved" @selected($nested->sub_work_result == 'solved')>Solved</option>
+                                                    <option value="pending" @selected($nested->sub_work_result == 'pending')>Pending</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -275,51 +293,6 @@
 </div>
 
 <script>
-
-    // const activityStatuses = @json($activityStatuses);
-    // console.log(activityStatuses);
-
-    // activityStatuses.forEach(activity => {
-    //     console.log(
-    //         activity.type,
-    //         activity.date,
-    //         activity.description,
-    //         activity.result,
-    //         activity.activity.subtasks.forEach(subtask => {
-    //             subtask.sub_work_type
-    //             subtask.sub_work_description
-    //             subtask.sub_work_result
-    //             subtask.nestedsubtask.forEach(nested => {
-    //                 nested.sub_work_description,
-    //                 nested.sub_work_type
-    //             });
-    //         });
-    //     )
-    // });
-
-
-
-
-// const activityStatuses = @json($activityStatuses);
-// console.log(activityStatuses);
-
-// activityStatuses.forEach(activity => {
-//     console.log("Activity:", activity.type, activity.date, activity.description, activity.result);
-
-//     // Loop through subtasks if they exist
-//     activity.activity?.subtasks?.forEach(subtask => {
-//         console.log("  Subtask:", subtask.sub_work_type, subtask.sub_work_description, subtask.sub_work_result);
-
-//         // Loop through nested subtasks if they exist
-//         subtask.nestedsubtask?.forEach(nested => {
-//             console.log("    Nested Subtask:", nested.sub_work_type, nested.sub_work_description);
-//         });
-//     });
-// });
-
-
-
-
 
 
 function openModal(id, user, work, desc, date, result, color ) {

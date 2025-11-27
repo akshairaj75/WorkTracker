@@ -20,7 +20,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class WorkstatusController extends Controller
 {
-
     //INDEX PAGE
 
     public function index(Request $request)
@@ -43,7 +42,6 @@ class WorkstatusController extends Controller
 
 
     //USER BASED ACTIVITY PROGRESS
-
     public function progressArea(Request $request)
     {
         $user = Auth::user();
@@ -65,7 +63,6 @@ class WorkstatusController extends Controller
         $datas = Activity::where('user_id', $user->id)->get();
         return response()->json($datas);
     }
-
 
     //TASK RELATED UPDATES; SEACH AND SELECTIONSCarbon::now()->format('Y-m-d');
 
@@ -177,15 +174,6 @@ class WorkstatusController extends Controller
 
         $workstatus = WorkStatus::create($data);
 
-
-
-        // if ($request->subtasks) {
-        //     foreach ($request->subtasks as $st) {
-        //         $workstatus->subtasks()->create($st);
-        //     }
-        // }
-
-
         if (!empty($subtasksInput) && is_array($subtasksInput)) {
             foreach ($subtasksInput as $top) {
                 $topData = [
@@ -227,11 +215,7 @@ class WorkstatusController extends Controller
     }
 
 
-
-
-
     // EDIT UPDATE  
-
     public function edit($id)
     {
         $user = Auth::user();
